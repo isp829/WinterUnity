@@ -22,14 +22,16 @@
    1. [기본행동 애니메이션 만들기](lecture/lecture3-1-A.md)  
    2. [카메라/배경 설정](lecture/lecture3-2.md)  
    3. [다른 물체들과 상호작용](lecture/lecture3-3.md)
-
+  
+3. 적 만들기
+   1. [적 기본행동 만들어주기1](lecture/lecture5-1.md)
+   2. [적 기본행동 만들어주기2](lecture/lecture5-1-1.md)
+   2. [플레이어, 바닥과의 상호작용](lecture/lecture5-2.md)
+   
+  
 2. 발판 만들기
    1. [플레이어, 적과의 상호작용](lecture/lecture4-1.md)
-   2. [특수 발판 만들기](lecture/lecture4-2.md)
-   
-3. 적 만들기
-   1. [적 기본행동 만들어주기](lecture/lecture5-1.md)
-   2. [플레이어, 바닥과의 상호작용](lecture/lecture5-2.md)
+   2. [특수 발판 만들기](lecture/lecture4-2.md)  
    
 4. 더 재밌게 만들 수 없을까?
    1. [스프라이트&애니메이션 적용](lecture/lecture6-1.md)
