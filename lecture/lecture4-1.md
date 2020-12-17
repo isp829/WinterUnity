@@ -141,8 +141,8 @@ public class platform : MonoBehaviour
 ```
 * 각각 player에 들어가는 코드 수정본과 새로만든 부서지는 발판의 코드들이다.
 --------------------------------
-![4-1-5](https://github.com/isp829/HU/blob/master/images/lecture4/4-1/4-1-5.jpg)   
-* 이 외에도 다양하게 만들어보자.  
+![4-1-5](https://github.com/isp829/HU/blob/master/images/lecture4/4-1-5.jpg)   
+* 이 외에도 다양하게 만들어보자.(ex:중력 역전 발판)  
 --------------------------------
 [목차로](https://github.com/isp829/HU/blob/master/README.md)  
 [다음](https://github.com/isp829/HU/blob/master/lecture/lecture6-1.md)  
