@@ -1,7 +1,5 @@
 enemy 개선하기
 =======================
-장애물 만나면 점프하기 플레이어 시야에서 사라지면 텔레포트 복귀하기   
----------------------------  
 ![6-2-1](https://github.com/isp829/HU/blob/master/images/lecutre6/6-2/6-2-1.PNG)  
 * enemy를 개선해보자.  
 * 지금 enemy는 날라다니던 상태에서 조정을해서 걸어다녀서 장애물이 있어도 넘어가지 못한다.
@@ -148,7 +146,7 @@ public class enemy : MonoBehaviour
     
 
 ```
-* 오늘 수정한 enemy코드 전문이다.
+* 수정한 enemy코드 전문이다.
 ----------------------------
 [목차로](https://github.com/isp829/HU/blob/master/README.md)  
 [다음](https://github.com/isp829/HU/blob/master/lecture/lecture6-3.md)  

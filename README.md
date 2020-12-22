@@ -33,8 +33,8 @@
    
 4. 더 재밌게 만들 수 없을까?
    1. [player개선하기](lecture/lecture6-1.md)  
-   1. [UI 만들기](lecture/lecture6-2.md)  
-   1. [아이템 만들기](lecture/lecture6-3.md)  
+   1. [enemy개선하기](lecture/lecture6-2.md)  
+   1. [UI만들기](lecture/lecture6-3.md)  
    2. [맵 기믹 만들기](lecture/lecture6-4.md)  
 
 5. 만들어서 발표해봅시다(상금 내사비 5만원 )  

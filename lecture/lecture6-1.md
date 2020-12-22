@@ -37,9 +37,29 @@ player개선하기
 * jumpBufferLentght의 시간만큼 선입력이 가능하다.  
 * 이제 버튼 누른다고 점프 조건이 아니므로 코드들을 수정해주자.  
 -----------------------   
-![6-1-11](https://github.com/isp829/HU/blob/master/images/lecutre6/6-1/6-1-11.PNG)
+![6-1-13](https://github.com/isp829/HU/blob/master/images/lecutre6/6-1/6-1-13.PNG)
 * 실행해 보면 바닥에 닿기전에 점프키를 누르면 바닥에 닿자마자 점프한다.  
 -----------------------   
+![6-1-14](https://github.com/isp829/HU/blob/master/images/lecutre6/6-1/6-1-14.png)
+* 보통 게임에서는 피격시 캐릭터가 불투명하게 변하면서 그동안은 무적 판정이 있다.
+-----------------------   
+![6-1-15](https://github.com/isp829/HU/blob/master/images/lecutre6/6-1/6-1-15.PNG)  
+![6-1-16](https://github.com/isp829/HU/blob/master/images/lecutre6/6-1/6-1-16.PNG)  
+![6-1-17](https://github.com/isp829/HU/blob/master/images/lecutre6/6-1/6-1-17.PNG)  
+* Color기능과 Physics2D.IgnoreLayerCollision기능을 사용하여 구현해보자.
+* Color의 a값을 조절하면 푸명토를 조절할 수 있다.  
+* Physics2D.IgnoreLayerCollision기능을 사용하면 두 레이어 사이의 상호작용을 없앨 수 있다.  
+* player를 layer9번에, enemy를 layer10번에 넣어주자.  
+-----------------------   
+![6-1-18](https://github.com/isp829/HU/blob/master/images/lecutre6/6-1/6-1-18.PNG)  
+![6-1-19](https://github.com/isp829/HU/blob/master/images/lecutre6/6-1/6-1-19.PNG)  
+![6-1-20](https://github.com/isp829/HU/blob/master/images/lecutre6/6-1/6-1-20.PNG)  
+![6-1-21](https://github.com/isp829/HU/blob/master/images/lecutre6/6-1/6-1-21.PNG)  
+* 코드들을 사용해 구현해주자.  
+----------------------- 
+![6-1-22](https://github.com/isp829/HU/blob/master/images/lecutre6/6-1/6-1-22.PNG)  
+* 실행해보면 enemy와 접촉시 반투명이 되고 3초동안 상호작용이 안일어난다.    
+--------------  
 ```
 using System.Collections;
 using System.Collections.Generic;
@@ -63,9 +83,13 @@ public class test : MonoBehaviour
     public float jumpCounter;
     public float jumpBufferLength=0.2f;//점프 선입력
     public float jumpBufferCount;
+    Renderer rend;
+    Color c;
     private void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
+        rend = GetComponent<Renderer>();
+        c = rend.material.color;
     }
     private void Update()
     {
@@ -82,10 +106,29 @@ public class test : MonoBehaviour
         if (col.gameObject.tag == "spike")
         {
             SceneManager.LoadScene("test");
+           
         }
         if (col.gameObject.tag == "goal")
         {
             SceneManager.LoadScene("test");
+        }
+    }
+    IEnumerator GetInvulnerable() 
+    {
+        Debug.Log("!!!");
+        Physics2D.IgnoreLayerCollision(9, 10,true);
+        c.a = 0.5f;
+        rend.material.color = c;
+        yield return new WaitForSeconds(3f);
+        Physics2D.IgnoreLayerCollision(9, 10, false);
+        c.a = 1f;
+        rend.material.color = c;
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("enemy"))
+        {
+            StartCoroutine("GetInvulnerable");
         }
     }
     private void OnCollisionStay2D(Collision2D collision)
@@ -114,6 +157,7 @@ public class test : MonoBehaviour
         {
             realMoveSpeed = moveSpeed;
         }
+
     }
     void Jump()
     {
@@ -127,7 +171,8 @@ public class test : MonoBehaviour
         }
         if (Input.GetButtonDown("Jump")) //점프 키가 눌렸을 때//ground이면서 스페이스바 누르면 
         {
-            jumpBufferCount = jumpBufferLength;       
+            jumpBufferCount = jumpBufferLength; 
+            //else return; //점프 중일 때는 실행하지 않고 바로 return.
         }
         else
         {
@@ -144,6 +189,7 @@ public class test : MonoBehaviour
         }
         if (jumpBufferCount>=0&&jumpCounter > 0) //점프 중이지 않을 때
         {
+            //rigid.AddForce(Vector2.up * realJumpPower, ForceMode2D.Impulse); //위쪽으로 힘을 준다.//반점프 사용하기위해서 이거말고 velocity사용
             rigid.velocity = new Vector2(rigid.velocity.x, realJumpPower);
             jumpBufferCount = 0;//점프 바로 못하게
             isground = false;
@@ -166,7 +212,6 @@ public class test : MonoBehaviour
         this.transform.Translate(dir * realMoveSpeed * Time.deltaTime); //오브젝트 이동 함수
     }
 }
-
 ```
 * 개선한 코드 전문이다.
 ----------------------------

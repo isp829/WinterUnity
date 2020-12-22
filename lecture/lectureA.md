@@ -20,7 +20,7 @@
 -------------------------------------------------------------   
 
 [목차로](https://github.com/isp829/HU/blob/master/README.md)  
-[다음](https://github.com/isp829/HU/blob/master/lecture/lecture3-1.md)  
+[다음](https://github.com/isp829/HU/blob/master/lecture/lectureT.md)  
 -----------------------------
     
 
