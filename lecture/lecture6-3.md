@@ -5,7 +5,7 @@ UI만들기
 * UI를 만들어 현재 player의 체력 상황을 알기쉽게 해주자.  
 --------------------------------------     
 ![6-3-2](https://github.com/isp829/HU/blob/master/images/lecture6/6-3/6-3-2.PNG)  
-![6-3-3](https://github.com/isp829/HU/blob/master/images/lecture6/6-3/6-3-3.PNG)  
+![6-3-3](https://github.com/isp829/HU/blob/master/images/lecture6/6-3/6-3-3.png)  
 * canvas를 만들어주고 설정을 해주자.  
 --------------------------------------     
 ![6-3-4](https://github.com/isp829/HU/blob/master/images/lecture6/6-3/6-3-4.PNG)  
