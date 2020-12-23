@@ -1,23 +1,24 @@
 UI만들기
 =======================
-![6-3-1](https://github.com/isp829/HU/blob/master/images/lecutre6/6-3/6-3-1.PNG)  
+![6-3-1](https://github.com/isp829/HU/blob/master/images/lecture6/6-3/6-3-1.PNG)  
 * UI란 user interface의 줄임말로 사용자에게 게임 정보를 한눈에 보기 쉽게 제공하는 역할을 한다.  
 * UI를 만들어 현재 player의 체력 상황을 알기쉽게 해주자.  
 --------------------------------------     
-![6-3-2](https://github.com/isp829/HU/blob/master/images/lecutre6/6-3/6-3-2.PNG)  
-![6-3-3](https://github.com/isp829/HU/blob/master/images/lecutre6/6-3/6-3-3.PNG)  
+![6-3-2](https://github.com/isp829/HU/blob/master/images/lecture6/6-3/6-3-2.PNG)  
+![6-3-3](https://github.com/isp829/HU/blob/master/images/lecture6/6-3/6-3-3.PNG)  
 * canvas를 만들어주고 설정을 해주자.  
 --------------------------------------     
-![6-3-4](https://github.com/isp829/HU/blob/master/images/lecutre6/6-3/6-3-4.PNG)  
-![6-3-5](https://github.com/isp829/HU/blob/master/images/lecutre6/6-3/6-3-5.PNG)  
+![6-3-4](https://github.com/isp829/HU/blob/master/images/lecture6/6-3/6-3-4.PNG)  
+![6-3-5](https://github.com/isp829/HU/blob/master/images/lecture6/6-3/6-3-5.PNG)  
 * 생명력 ui로 쓸 image들을 만들고 위치 조절을 해주자.   
 --------------------------------------     
-![6-3-6](https://github.com/isp829/HU/blob/master/images/lecutre6/6-3/6-3-6.PNG)  
-![6-3-7](https://github.com/isp829/HU/blob/master/images/lecutre6/6-3/6-3-7.PNG)  
+![6-3-6](https://github.com/isp829/HU/blob/master/images/lecture6/6-3/6-3-6.PNG)  
+![6-3-7](https://github.com/isp829/HU/blob/master/images/lecture6/6-3/6-3-7.PNG)  
 * 코드들을 사용해 생명력이 표시되도록 만들고 어떤 상황에 생명력이 1 줄어들지 생각해서 코드들을 수정하자.  
 --------------------------------------  
-![6-3-8](https://github.com/isp829/HU/blob/master/images/lecutre6/6-3/6-3-8.PNG)  
+![6-3-8](https://github.com/isp829/HU/blob/master/images/lecture6/6-3/6-3-8.PNG)  
 * 실행해보면 enemy나 spike에 닿으면 체력이 줄어들고 무적상태가 된다.   
+* 시작 체력을 3으로 하고 체력이 0이면 scene을 다시불러오도록 코드를 수정하자.  
 --------------------------------------     
 ```
 using System.Collections;
@@ -189,6 +190,10 @@ public class test : MonoBehaviour
             {
                 hearts[i].enabled = false;
             }
+            if (health <= 0)
+            {
+                SceneManager.LoadScene("test");//체력 0이면 scene다시불러오기 
+            }
         }
     }
 }
@@ -197,6 +202,6 @@ public class test : MonoBehaviour
 * 수정한 코드들 전문이다.  
 -------------
 [목차로](https://github.com/isp829/HU/blob/master/README.md)  
-[다음](https://github.com/isp829/HU/blob/master/lecture/lecture3-3.md)   
+[다음](https://github.com/isp829/HU/blob/master/lecture/lecture6-4.md)   
 -----------------------------  
 
